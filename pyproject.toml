@@ -1,0 +1,25 @@
+[project]
+name = "ai-chatbot"
+version = "0.1.0"
+description = "Asynchronous template for AI Telegram bot with context, styles, and regeneration"
+authors = []
+    requires-python = ">=3.9"
+    dependencies = [
+    "aiogram>=3.0.0",
+    "aiosqlite>=0.19.0",
+    "logging>=0.4.9.6",
+    "openai>=1.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+
+[tool.setuptools]
+packages = ["ai_chatbot", "ai_chatbot.handlers"]
+
+
+[tool.black]
+line-length = 100
+
+
+[tool.isort]
+profile = "black"
