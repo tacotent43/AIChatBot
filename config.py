@@ -1,4 +1,5 @@
 import os
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -7,10 +8,9 @@ TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 DB_PATH = os.getenv("BOT_DB_PATH", "bot_contexts.db")
 MODEL_NAME = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
-# BASE_URL = os.getenv("BASE_URL", "nullptr")
 
 
-TG_MESSAGE_LIMIT = 4096
+TG_MESSAGE_LIMIT = 4000
 MAX_CONTEXT_MESSAGES = 12
 
 

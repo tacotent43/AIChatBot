@@ -1,6 +1,11 @@
 from typing import List
 
-from config import BASE_SYSTEM_PROMPT, STYLES, TELEGRAM_WRAPPER_INSTRUCTION, TG_MESSAGE_LIMIT
+from config import (
+    BASE_SYSTEM_PROMPT,
+    STYLES,
+    TELEGRAM_WRAPPER_INSTRUCTION,
+    TG_MESSAGE_LIMIT,
+)
 
 
 def build_system_prompt(style: str) -> str:

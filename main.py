@@ -1,10 +1,12 @@
 import asyncio
 import logging
+
 from aiogram import Bot, Dispatcher
-from config import TELEGRAM_TOKEN, DB_PATH
+
+from config import DB_PATH, TELEGRAM_TOKEN
 from database import DB
-from handlers.common import setup_common_handlers
 from handlers.chat import setup_chat_handlers
+from handlers.common import setup_common_handlers
 
 
 async def main():
@@ -18,5 +20,5 @@ async def main():
     await dp.start_polling(bot)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(main())

@@ -6,11 +6,12 @@ from database import DB
 
 
 def setup_common_handlers(dp, db: DB):
-    @dp.message(Command(commands=['start']))
+    @dp.message(Command(commands=["start"]))
     async def cmd_start(message: types.Message):
-        await db.set_style(message.chat.id, 'default')
-        await message.reply("Hello! I am your custom self-hosted AI-assistant. Use /style to choose style.")
-
+        await db.set_style(message.chat.id, "default")
+        await message.reply(
+            "Hello! I am your custom self-hosted AI-assistant. Use /style to choose style."
+        )
 
     @dp.message(Command(commands=["style"]))
     async def cmd_style(message: types.Message):
@@ -19,10 +20,10 @@ def setup_common_handlers(dp, db: DB):
 
         if not args:
             current = await db.get_style(message.chat.id)
-            text = "Available styles:\n" + "\n".join(
-                [f"- {k}: {v}" for k, v in STYLES.items()]
+            text = "Available styles:\n" + "\n".join([f"- {k}: {v}" for k, v in STYLES.items()])
+            text += (
+                f"\n\nCurrent style: {current}\nType `/style style_name` to change current style."
             )
-            text += f"\n\nCurrent style: {current}\nType `/style style_name` to change current style."
             await message.reply(text)
             return
 
@@ -34,7 +35,7 @@ def setup_common_handlers(dp, db: DB):
         await db.set_style(message.chat.id, style)
         await message.reply(f"Style changed to: {style}")
 
-    @dp.message(Command(commands=['clear']))
+    @dp.message(Command(commands=["clear"]))
     async def cmd_clear(message: types.Message):
         await db.clear_context(message.chat.id)
         await message.reply("Context cleared.")
